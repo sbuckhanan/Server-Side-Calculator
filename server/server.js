@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = 5000;
+let mathTime = require('./modules/mathstuff.js');
 
 let numbersReceived;
 let finalAnswer;
@@ -19,28 +20,10 @@ app.post('/calculations', (req, res) => {
 
 	storeCalcs.push(req.body);
 	numbersReceived = req.body;
-	mathTime(numbersReceived);
+	finalAnswer = mathTime(numbersReceived);
 	storeCalcs[storeCalcs.length - 1].answer = finalAnswer;
 	res.sendStatus(201);
 	console.log(storeCalcs[storeCalcs.length - 1]);
 });
-
-function mathTime(numbers) {
-	let numberOne = Number(numbers.numbersArray[0]);
-	let numberTwo = Number(numbers.numbersArray[1]);
-	if (numbers.operator === '+') {
-		finalAnswer = numberOne + numberTwo;
-		return finalAnswer;
-	} else if (numbers.operator === '-') {
-		finalAnswer = numberOne - numberTwo;
-		return finalAnswer;
-	} else if (numbers.operator === '/') {
-		finalAnswer = numberOne / numberTwo;
-		return finalAnswer;
-	} else if (numbers.operator === '*') {
-		finalAnswer = numberOne * numberTwo;
-		return finalAnswer;
-	}
-}
 
 app.listen(PORT, () => console.log('listening on port', PORT));
