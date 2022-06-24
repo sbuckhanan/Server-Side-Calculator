@@ -19,6 +19,7 @@ function onReady() {
 	$('.multiplyButton').on('click', clickMultiply);
 	$('.dotButton').on('click', clickDot);
 	$('.clearButton').on('click', clickClear);
+	$(document).on('click', 'li', handleRerun);
 	getCalculations();
 }
 
@@ -51,7 +52,7 @@ function renderToDom(serverInfo) {
 	$('.pastCalculations').empty();
 	for (let i of serverInfo) {
 		$('.pastCalculations').append(`
-			<li>${i.operationToDo} = ${i.answer}</li>
+			<li data-calculation="${i.operationToDo}">${i.operationToDo} = ${i.answer}</li>
 		`);
 		$('.totalNumber').html(`Answer:`);
 		$('.totalNumber').html(`Answer: ${i.answer}`);
@@ -259,4 +260,9 @@ function clickClear() {
 	// console.log('Clicked clear');
 	$('.numberInput').val('');
 	$('.totalNumber').html(`Answer:`);
+}
+
+function handleRerun() {
+	let reRun = $(this).data('calculation');
+	$('.numberInput').val(`${reRun}`);
 }
