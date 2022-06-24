@@ -3,6 +3,22 @@ $(onReady);
 function onReady() {
 	console.log('We are ready');
 	getCalculations();
+	$('.nineButton').on('click', clickNine);
+	$('.eightButton').on('click', clickEight);
+	$('.sevenButton').on('click', clickSeven);
+	$('.sixButton').on('click', clickSix);
+	$('.fiveButton').on('click', clickFive);
+	$('.fourButton').on('click', clickFour);
+	$('.threeButton').on('click', clickThree);
+	$('.twoButton').on('click', clickTwo);
+	$('.oneButton').on('click', clickOne);
+	$('.zeroButton').on('click', clickZero);
+	$('.equalButton').on('click', clickEqual);
+	$('.subtractButton').on('click', clickSubtract);
+	$('.addButton').on('click', clickAdd);
+	$('.divideButton').on('click', clickDivide);
+	$('.multiplyButton').on('click', clickMultiply);
+	$('.dotButton').on('click', clickDot);
 }
 
 //? get value of input field

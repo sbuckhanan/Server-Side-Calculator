@@ -6,7 +6,7 @@ const PORT = 5000;
 let storeCalcs = [
 	{
 		valueOne: 23,
-		value: 2,
+		valueTwo: 2,
 		answer: 23,
 	},
 ];
@@ -20,7 +20,7 @@ app.get('/calculations', (req, res) => res.send(storeCalcs));
 app.post('/calculations', (req, res) => {
 	console.log(req.body);
 
-	//? push the req.body
+	storeCalcs.push(req.body);
 
 	res.sendStatus(201);
 });
