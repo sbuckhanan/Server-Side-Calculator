@@ -19,6 +19,7 @@ function onReady() {
 	$('.divideButton').on('click', clickDivide);
 	$('.multiplyButton').on('click', clickMultiply);
 	$('.dotButton').on('click', clickDot);
+	$('.clearButton').on('click', clickClear);
 }
 
 //? get value of input field
@@ -30,8 +31,6 @@ function onReady() {
 //? post request should add an object to the server that gets added to the array
 //? maybe send back the request (req.body) and display the response to the dom instead of looping through a response array
 //? update the calculated field on the dom. that should also be stored on the server in that object
-
-let inputField = $('.numberInput');
 
 function getCalculations() {
 	console.log('In get calculations');
@@ -54,4 +53,90 @@ function renderToDom(serverInfo) {
 			<li>${calc}</li>
 		`);
 	}
+}
+
+function clickNine() {
+	console.log('Clicked nine');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}9`);
+	} else {
+		$('.numberInput').val(`9`);
+	}
+}
+
+function clickEight() {
+	console.log('Clicked eight');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}8`);
+	} else {
+		$('.numberInput').val(`8`);
+	}
+}
+
+function clickSeven() {
+	console.log('Clicked seven');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}7`);
+	} else {
+		$('.numberInput').val(`7`);
+	}
+}
+
+function clickSix() {
+	console.log('Clicked six');
+}
+
+function clickFive() {
+	console.log('Clicked five');
+}
+
+function clickFour() {
+	console.log('Clicked four');
+}
+
+function clickThree() {
+	console.log('Clicked three');
+}
+
+function clickTwo() {
+	console.log('Clicked two');
+}
+
+function clickOne() {
+	console.log('Clicked one');
+}
+
+function clickZero() {
+	console.log('Clicked zero');
+}
+
+function clickEqual() {
+	console.log('Clicked equal');
+}
+
+function clickSubtract() {
+	console.log('Clicked subtract');
+}
+
+function clickAdd() {
+	console.log('Clicked add');
+}
+
+function clickDivide() {
+	console.log('Clicked divide');
+}
+
+function clickMultiply() {
+	console.log('Clicked multiple');
+}
+
+function clickDot() {
+	console.log('Clicked dot');
+}
+
+function clickClear() {
+	console.log('Clicked clear');
 }
