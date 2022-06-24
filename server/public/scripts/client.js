@@ -157,6 +157,11 @@ function clickZero() {
 
 function clickEqual() {
 	console.log('Clicked equal');
+	//? somehow get the input and store it in an object
+	//? send it over to the server
+	//? do the math somehow on the server
+	//? server send it back when we do a get request
+	//? append data to dom by doing response.length - 1??? instead of loop
 }
 
 function clickSubtract() {
