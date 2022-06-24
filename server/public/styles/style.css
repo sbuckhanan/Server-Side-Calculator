@@ -1,7 +1,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: teal;
 }
 h1 {
 	text-align: center;
@@ -11,8 +10,6 @@ p {
 }
 .rowOne {
 	text-align: center;
-	position: relative;
-	right: -30px;
 }
 .rowTwo {
 	text-align: center;
@@ -32,55 +29,25 @@ p {
 }
 li {
 	text-align: center;
-	font-size: 20px;
 }
 .button {
 	height: 50px;
 	width: 50px;
 	margin: 1px;
-	background-color: black;
-	color: white;
 }
 .button:hover {
 	transform: scale(1.1);
 	cursor: pointer;
 }
 .numberInput {
-	/* height: 30px;
-	width: 280px; */
-	background-color: #171616;
-	margin: 1;
-	margin-right: 10px;
-	padding: 0;
-	color: #fdfdfd;
-	word-wrap: break-word;
-	outline: 7px solid #383838;
 	height: 30px;
-	font-size: 17px;
-	transition: all 1s;
-	width: 230px;
-	font-weight: bold;
-	font-family: 'Courier New', Courier, monospace;
+	width: 280px;
 }
 .clearButton {
 	height: 35px;
 	width: 50px;
 }
 .clearButton:hover {
-	transform: scale(1.1);
-	cursor: pointer;
-}
-.totalNumber {
-	font-size: 30px;
-}
-.buttonOperator {
-	height: 50px;
-	width: 50px;
-	margin: 1px;
-	background-color: grey;
-	color: white;
-}
-.buttonOperator:hover {
 	transform: scale(1.1);
 	cursor: pointer;
 }
