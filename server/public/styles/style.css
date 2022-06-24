@@ -84,3 +84,15 @@ li {
 	transform: scale(1.1);
 	cursor: pointer;
 }
+.calcBody {
+	background-color: white;
+	width: 375px;
+	height: 375px;
+	text-align: center;
+	align-items: center;
+	position: relative;
+	right: -530px;
+	border: 1px solid black;
+	border-radius: 20px;
+	border-width: thick;
+}

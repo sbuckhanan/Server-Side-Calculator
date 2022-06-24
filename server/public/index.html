@@ -12,37 +12,39 @@
 	<body>
 		<h1>Server Side Calculator</h1>
 		<br />
-		<div class="rowOne">
-			<input type="text" class="numberInput" />
-			<button class="clearButton">C</button>
+		<div class="calcBody">
+			<br />
+			<div class="rowOne">
+				<input type="text" class="numberInput" />
+				<button class="clearButton">C</button>
+			</div>
+			<br />
+			<div class="rowTwo">
+				<button class="button sevenButton">7</button>
+				<button class="button eightButton">8</button>
+				<button class="button nineButton">9</button>
+				<button class="buttonOperator addButton">+</button>
+			</div>
+			<div class="rowThree">
+				<button class="button fourButton">4</button>
+				<button class="button fiveButton">5</button>
+				<button class="button sixButton">6</button>
+				<button class="buttonOperator subtractButton">-</button>
+			</div>
+			<div class="rowFour">
+				<button class="button oneButton">1</button>
+				<button class="button twoButton">2</button>
+				<button class="button threeButton">3</button>
+				<button class="buttonOperator divideButton">/</button>
+			</div>
+			<div class="rowFive">
+				<button class="button zeroButton">0</button>
+				<button class="button dotButton">.</button>
+				<button class="buttonOperator equalButton">=</button>
+				<button class="buttonOperator multiplyButton">*</button>
+			</div>
+			<p class="totalNumber">Answer:</p>
 		</div>
-		<br />
-		<div class="rowTwo">
-			<button class="button sevenButton">7</button>
-			<button class="button eightButton">8</button>
-			<button class="button nineButton">9</button>
-			<button class="buttonOperator addButton">+</button>
-		</div>
-		<div class="rowThree">
-			<button class="button fourButton">4</button>
-			<button class="button fiveButton">5</button>
-			<button class="button sixButton">6</button>
-			<button class="buttonOperator subtractButton">-</button>
-		</div>
-		<div class="rowFour">
-			<button class="button oneButton">1</button>
-			<button class="button twoButton">2</button>
-			<button class="button threeButton">3</button>
-			<button class="buttonOperator divideButton">/</button>
-		</div>
-		<div class="rowFive">
-			<button class="button zeroButton">0</button>
-			<button class="button dotButton">.</button>
-			<button class="buttonOperator equalButton">=</button>
-			<button class="buttonOperator multiplyButton">*</button>
-		</div>
-		<p class="totalNumber">Answer:</p>
-
 		<ul class="pastCalculations">
 			<!-- append in calc from input field here -->
 			<li>16 / 2</li>

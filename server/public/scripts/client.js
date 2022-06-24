@@ -210,8 +210,6 @@ function clickEqual() {
 			.catch(function (error) {
 				console.log(error);
 			});
-
-		$('.numberInput').val('');
 	}
 }
 
