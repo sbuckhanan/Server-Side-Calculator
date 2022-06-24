@@ -1,8 +1,7 @@
 $(onReady);
 
 function onReady() {
-	console.log('We are ready');
-	getCalculations();
+	// console.log('We are ready');
 	$('.nineButton').on('click', clickNine);
 	$('.eightButton').on('click', clickEight);
 	$('.sevenButton').on('click', clickSeven);
@@ -20,6 +19,7 @@ function onReady() {
 	$('.multiplyButton').on('click', clickMultiply);
 	$('.dotButton').on('click', clickDot);
 	$('.clearButton').on('click', clickClear);
+	getCalculations();
 }
 
 //? get value of input field
@@ -33,30 +33,33 @@ function onReady() {
 //? update the calculated field on the dom. that should also be stored on the server in that object
 
 function getCalculations() {
-	console.log('In get calculations');
+	// console.log('In get calculations');
 	$.ajax({
 		type: 'GET',
 		url: '/calculations',
 	})
 		.then(function (response) {
-			console.log(response);
+			// console.log(response);
 			renderToDom(response);
 		})
 		.catch(function (error) {
-			console.log(error);
+			// console.log(error);
 		});
 }
 
 function renderToDom(serverInfo) {
-	for (let calc of serverInfo) {
+	$('.pastCalculations').empty();
+	for (let i of serverInfo) {
 		$('.pastCalculations').append(`
-			<li>${calc}</li>
+			<li>${i.operationToDo}</li>
 		`);
+		$('.totalNumber').html(`Answer:`);
+		$('.totalNumber').html(`Answer: ${i.answer}`);
 	}
 }
 
 function clickNine() {
-	console.log('Clicked nine');
+	// console.log('Clicked nine');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}9`);
@@ -66,7 +69,7 @@ function clickNine() {
 }
 
 function clickEight() {
-	console.log('Clicked eight');
+	// console.log('Clicked eight');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}8`);
@@ -76,7 +79,7 @@ function clickEight() {
 }
 
 function clickSeven() {
-	console.log('Clicked seven');
+	// console.log('Clicked seven');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}7`);
@@ -86,7 +89,7 @@ function clickSeven() {
 }
 
 function clickSix() {
-	console.log('Clicked six');
+	// console.log('Clicked six');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}6`);
@@ -96,7 +99,7 @@ function clickSix() {
 }
 
 function clickFive() {
-	console.log('Clicked five');
+	// console.log('Clicked five');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}5`);
@@ -106,7 +109,7 @@ function clickFive() {
 }
 
 function clickFour() {
-	console.log('Clicked four');
+	// console.log('Clicked four');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}4`);
@@ -116,7 +119,7 @@ function clickFour() {
 }
 
 function clickThree() {
-	console.log('Clicked three');
+	// console.log('Clicked three');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}3`);
@@ -126,7 +129,7 @@ function clickThree() {
 }
 
 function clickTwo() {
-	console.log('Clicked two');
+	// console.log('Clicked two');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}2`);
@@ -136,7 +139,7 @@ function clickTwo() {
 }
 
 function clickOne() {
-	console.log('Clicked one');
+	// console.log('Clicked one');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}1`);
@@ -146,7 +149,7 @@ function clickOne() {
 }
 
 function clickZero() {
-	console.log('Clicked zero');
+	// console.log('Clicked zero');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}0`);
@@ -156,16 +159,57 @@ function clickZero() {
 }
 
 function clickEqual() {
-	console.log('Clicked equal');
+	// console.log('Clicked equal');
 	//? somehow get the input and store it in an object
 	//? send it over to the server
 	//? do the math somehow on the server
 	//? server send it back when we do a get request
 	//? append data to dom by doing response.length - 1??? instead of loop
+	let finalNumbers = $('.numberInput').val();
+	console.log('Final Inputs:', finalNumbers);
+	let newArray;
+	let operator;
+
+	if (finalNumbers.includes('+')) {
+		newArray = finalNumbers.split('+');
+		operator = '+';
+	} else if (finalNumbers.includes('-')) {
+		newArray = finalNumbers.split('-');
+		operator = '-';
+	} else if (finalNumbers.includes('/')) {
+		newArray = finalNumbers.split('/');
+		operator = '/';
+	} else if (finalNumbers.includes('*')) {
+		newArray = finalNumbers.split('*');
+		operator = '*';
+	}
+	// console.log('Numbers after split:', newArray);
+
+	let mathObj = {
+		operationToDo: finalNumbers,
+		numbersArray: newArray,
+		operator: operator,
+	};
+	console.log(mathObj);
+
+	$.ajax({
+		type: 'POST',
+		url: '/calculations',
+		data: mathObj,
+	})
+		.then(function (response) {
+			console.log(response);
+			getCalculations(response);
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+
+	$('.numberInput').val('');
 }
 
 function clickSubtract() {
-	console.log('Clicked subtract');
+	// console.log('Clicked subtract');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}-`);
@@ -173,7 +217,7 @@ function clickSubtract() {
 }
 
 function clickAdd() {
-	console.log('Clicked add');
+	// console.log('Clicked add');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}+`);
@@ -181,7 +225,7 @@ function clickAdd() {
 }
 
 function clickDivide() {
-	console.log('Clicked divide');
+	// console.log('Clicked divide');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}/`);
@@ -189,7 +233,7 @@ function clickDivide() {
 }
 
 function clickMultiply() {
-	console.log('Clicked multiple');
+	// console.log('Clicked multiple');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}*`);
@@ -197,7 +241,7 @@ function clickMultiply() {
 }
 
 function clickDot() {
-	console.log('Clicked dot');
+	// console.log('Clicked dot');
 	let inputField = $('.numberInput').val();
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}.`);
@@ -207,6 +251,6 @@ function clickDot() {
 }
 
 function clickClear() {
-	console.log('Clicked clear');
+	// console.log('Clicked clear');
 	$('.numberInput').val('');
 }
