@@ -2,6 +2,7 @@ $(onReady);
 
 function onReady() {
 	console.log('We are ready');
+	getCalculations();
 }
 
 //? get value of input field
@@ -15,3 +16,26 @@ function onReady() {
 //? update the calculated field on the dom. that should also be stored on the server in that object
 
 let inputField = $('.numberInput');
+
+function getCalculations() {
+	console.log('In get calculations');
+	$.ajax({
+		type: 'GET',
+		url: '/calculations',
+	})
+		.then(function (response) {
+			console.log(response);
+			renderToDom(response);
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+}
+
+function renderToDom(serverInfo) {
+	for (let calc of serverInfo) {
+		$('.pastCalculations').append(`
+			<li>${calc}</li>
+		`);
+	}
+}
