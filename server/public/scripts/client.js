@@ -87,30 +87,72 @@ function clickSeven() {
 
 function clickSix() {
 	console.log('Clicked six');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}6`);
+	} else {
+		$('.numberInput').val(`6`);
+	}
 }
 
 function clickFive() {
 	console.log('Clicked five');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}5`);
+	} else {
+		$('.numberInput').val(`5`);
+	}
 }
 
 function clickFour() {
 	console.log('Clicked four');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}4`);
+	} else {
+		$('.numberInput').val(`4`);
+	}
 }
 
 function clickThree() {
 	console.log('Clicked three');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}3`);
+	} else {
+		$('.numberInput').val(`3`);
+	}
 }
 
 function clickTwo() {
 	console.log('Clicked two');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}2`);
+	} else {
+		$('.numberInput').val(`2`);
+	}
 }
 
 function clickOne() {
 	console.log('Clicked one');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}1`);
+	} else {
+		$('.numberInput').val(`1`);
+	}
 }
 
 function clickZero() {
 	console.log('Clicked zero');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}0`);
+	} else {
+		$('.numberInput').val(`0`);
+	}
 }
 
 function clickEqual() {
@@ -119,24 +161,47 @@ function clickEqual() {
 
 function clickSubtract() {
 	console.log('Clicked subtract');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}-`);
+	}
 }
 
 function clickAdd() {
 	console.log('Clicked add');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}+`);
+	}
 }
 
 function clickDivide() {
 	console.log('Clicked divide');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}/`);
+	}
 }
 
 function clickMultiply() {
 	console.log('Clicked multiple');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}*`);
+	}
 }
 
 function clickDot() {
 	console.log('Clicked dot');
+	let inputField = $('.numberInput').val();
+	if (inputField !== '' && inputField !== undefined) {
+		$('.numberInput').val(`${inputField}.`);
+	} else {
+		$('.numberInput').val(`.`);
+	}
 }
 
 function clickClear() {
 	console.log('Clicked clear');
+	$('.numberInput').val('');
 }
