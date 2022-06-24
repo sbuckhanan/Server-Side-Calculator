@@ -182,6 +182,8 @@ function clickEqual() {
 	} else if (finalNumbers.includes('*')) {
 		newArray = finalNumbers.split('*');
 		operator = '*';
+	} else {
+		operator = '';
 	}
 	// console.log('Numbers after split:', newArray);
 
@@ -190,22 +192,27 @@ function clickEqual() {
 		numbersArray: newArray,
 		operator: operator,
 	};
-	console.log(mathObj);
 
-	$.ajax({
-		type: 'POST',
-		url: '/calculations',
-		data: mathObj,
-	})
-		.then(function (response) {
-			console.log(response);
-			getCalculations(response);
+	if (operator === '') {
+		return alert('Need to have a operator (+, -, *, /)');
+	} else {
+		console.log(mathObj);
+
+		$.ajax({
+			type: 'POST',
+			url: '/calculations',
+			data: mathObj,
 		})
-		.catch(function (error) {
-			console.log(error);
-		});
+			.then(function (response) {
+				console.log(response);
+				getCalculations(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 
-	$('.numberInput').val('');
+		$('.numberInput').val('');
+	}
 }
 
 function clickSubtract() {
