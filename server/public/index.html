@@ -11,38 +11,40 @@
 	</head>
 	<body>
 		<h1>Server Side Calculator</h1>
-		<input type="text" />
+		<input type="text" class="numberInput" />
+		<button class="clearButton">C</button>
 		<br />
 		<div>
-			<button>7</button>
-			<button>8</button>
-			<button>9</button>
-			<button>+</button>
+			<button class="sevenButton">7</button>
+			<button class="eightButton">8</button>
+			<button class="nineButton">9</button>
+			<button class="addButton">+</button>
 		</div>
 		<div>
-			<button>4</button>
-			<button>5</button>
-			<button>6</button>
-			<button>-</button>
+			<button class="fourButton">4</button>
+			<button class="fiveButton">5</button>
+			<button class="sixButton">6</button>
+			<button class="subtractButton">-</button>
 		</div>
 		<div>
-			<button>1</button>
-			<button>2</button>
-			<button>3</button>
-			<button>/</button>
+			<button class="oneButton">1</button>
+			<button class="twoButton">2</button>
+			<button class="threeButton">3</button>
+			<button class="divideButton">/</button>
 		</div>
 		<div>
-			<button>0</button>
-			<button>.</button>
-			<button>=</button>
-			<button>*</button>
+			<button class="zeroButton">0</button>
+			<button class="dotButton">.</button>
+			<button class="equalButton">=</button>
+			<button class="multiplyButton">*</button>
 		</div>
 
-		<p>TOTAL CALCULATED HERE</p>
+		<p class="totalNumber">TOTAL CALCULATED HERE</p>
 
-		<ul>
+		<ul class="pastCalculations">
 			<!-- append in calc from input field here -->
-			<li></li>
+			<li>16 / 2</li>
+			<li>5 * 2</li>
 		</ul>
 	</body>
 </html>
