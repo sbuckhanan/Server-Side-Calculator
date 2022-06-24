@@ -51,7 +51,7 @@ function renderToDom(serverInfo) {
 	$('.pastCalculations').empty();
 	for (let i of serverInfo) {
 		$('.pastCalculations').append(`
-			<li>${i.operationToDo}</li>
+			<li>${i.operationToDo} = ${i.answer}</li>
 		`);
 		$('.totalNumber').html(`Answer:`);
 		$('.totalNumber').html(`Answer: ${i.answer}`);
@@ -258,4 +258,5 @@ function clickDot() {
 function clickClear() {
 	// console.log('Clicked clear');
 	$('.numberInput').val('');
+	$('.totalNumber').html(`Answer:`);
 }
