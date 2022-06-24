@@ -26,4 +26,9 @@ app.post('/calculations', (req, res) => {
 	console.log(storeCalcs[storeCalcs.length - 1]);
 });
 
+// app.delete('/calculations/', (req,res) => {
+
+// 	res.send('Deleted')
+// });
+
 app.listen(PORT, () => console.log('listening on port', PORT));
