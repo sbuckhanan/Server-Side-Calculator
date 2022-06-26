@@ -4,7 +4,7 @@
 
 ## Description
 
-_Duration: 4 Hours_
+_Duration: 8 Hours_
 
 This application is a full functional server sided calculator. It is built with an HTML, CSS, jQuery, AJAX and Javascript front end. Powered by a Node.js and Express.js backend. With this calculator you are able to do math on two numbers. It can currently add, subtract, divide, and multiply. The math is all done on the server side and then sent back to the client to display on the DOM
 
