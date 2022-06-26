@@ -14,7 +14,9 @@ This application is a full functional server sided calculator. It is built with 
 
 ### Prerequisites
 
-Node Express
+1. Node.js
+2. Express.js
+3. jQuery
 
 ## How does someone use this application?
 
