@@ -33,6 +33,8 @@ function onReady() {
 //? maybe send back the request (req.body) and display the response to the dom instead of looping through a response array
 //? update the calculated field on the dom. that should also be stored on the server in that object
 
+let operator = '';
+
 function getCalculations() {
 	// console.log('In get calculations');
 	$.ajax({
@@ -52,10 +54,9 @@ function renderToDom(serverInfo) {
 	$('.pastCalculations').empty();
 	for (let i of serverInfo) {
 		$('.pastCalculations').append(`
-			<li data-calculation="${i.operationToDo}">${i.operationToDo} = ${i.answer}</li>
+			<li>${i.num1} ${i.operator} ${i.num2} = ${i.answer}</li>
 		`);
-		$('.totalNumber').html(`Answer:`);
-		$('.totalNumber').html(`Answer: ${i.answer}`);
+		$('.totalNumber').text(`Answer: ${i.answer}`);
 	}
 }
 
@@ -168,29 +169,11 @@ function clickEqual() {
 	//? append data to dom by doing response.length - 1??? instead of loop
 	let finalNumbers = $('.numberInput').val();
 	console.log('Final Inputs:', finalNumbers);
-	let newArray;
-	let operator;
-
-	if (finalNumbers.includes('+')) {
-		newArray = finalNumbers.split('+');
-		operator = '+';
-	} else if (finalNumbers.includes('-')) {
-		newArray = finalNumbers.split('-');
-		operator = '-';
-	} else if (finalNumbers.includes('/')) {
-		newArray = finalNumbers.split('/');
-		operator = '/';
-	} else if (finalNumbers.includes('*')) {
-		newArray = finalNumbers.split('*');
-		operator = '*';
-	} else {
-		operator = '';
-	}
-	// console.log('Numbers after split:', newArray);
+	let newArray = finalNumbers.split(operator);
 
 	let mathObj = {
-		operationToDo: finalNumbers,
-		numbersArray: newArray,
+		num1: newArray[0],
+		num2: newArray[1],
 		operator: operator,
 	};
 
@@ -212,6 +195,7 @@ function clickEqual() {
 				console.log(error);
 			});
 	}
+	operator = '';
 }
 
 function clickSubtract() {
@@ -220,6 +204,7 @@ function clickSubtract() {
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}-`);
 	}
+	operator = '-';
 }
 
 function clickAdd() {
@@ -228,6 +213,7 @@ function clickAdd() {
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}+`);
 	}
+	operator = '+';
 }
 
 function clickDivide() {
@@ -236,6 +222,7 @@ function clickDivide() {
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}/`);
 	}
+	operator = '/';
 }
 
 function clickMultiply() {
@@ -244,6 +231,7 @@ function clickMultiply() {
 	if (inputField !== '' && inputField !== undefined) {
 		$('.numberInput').val(`${inputField}*`);
 	}
+	operator = '*';
 }
 
 function clickDot() {

@@ -1,18 +1,12 @@
-function mathTime(numbers) {
-	let numberOne = Number(numbers.numbersArray[0]);
-	let numberTwo = Number(numbers.numbersArray[1]);
-	if (numbers.operator === '+') {
-		finalAnswer = numberOne + numberTwo;
-		return finalAnswer;
-	} else if (numbers.operator === '-') {
-		finalAnswer = numberOne - numberTwo;
-		return finalAnswer;
-	} else if (numbers.operator === '/') {
-		finalAnswer = numberOne / numberTwo;
-		return finalAnswer;
-	} else if (numbers.operator === '*') {
-		finalAnswer = numberOne * numberTwo;
-		return finalAnswer;
+function mathTime(num1, num2, operator) {
+	if (operator === '+') {
+		return num1 + num2;
+	} else if (operator === '-') {
+		return num1 - num2;
+	} else if (operator === '/') {
+		return num1 / num2;
+	} else if (operator === '*') {
+		return num1 * num2;
 	}
 }
 
