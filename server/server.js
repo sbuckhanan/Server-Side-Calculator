@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+//? must be like this for heroku
 const PORT = process.env.PORT || 5000;
 let mathTime = require('./modules/mathstuff.js');
 
