@@ -10,8 +10,6 @@ let storeCalcs = [];
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => res.send(storeCalcs));
-
 app.get('/calculations', (req, res) => res.send(storeCalcs));
 
 app.post('/calculations', (req, res) => {
